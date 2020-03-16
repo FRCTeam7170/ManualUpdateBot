@@ -132,7 +132,17 @@ class Notification:
         except Exception as em:
             print("EXCEPTION: " + str(em))
             
-if __name__ == "__main__":   
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Check for FRC manual updates")
+    parser.add_argument("-e", "--email", action="store_true", help="Use when E-Mail is required")
+    parser.add_argument("-s", "--slack", action="store_true", help="Use when Slack message is required")
+    parser.add_argument("-t", "--test", action="store_true", help="Use when testing")
+    args = parser.parse_args()
+    
+    config = configparser.ConfigParser()
+    config["internal"] = {}
+    config["internal"]["conf_file"] = "/etc/FRCUpdatelogger.conf"
+    config["internal"]["keys"]      = "['port','user','host','sender_email','password','destination','slackBot','slackBottest']"  
     Pdf_firstrobotics()
 
 
