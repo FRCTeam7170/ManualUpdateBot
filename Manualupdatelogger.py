@@ -138,6 +138,8 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--slack", action="store_true", help="Use when Slack message is required")
     parser.add_argument("-t", "--test", action="store_true", help="Use when testing")
     args = parser.parse_args()
+    if not args.email and not args.slack and not args.test:
+        print("You are only printing the output to the console!")
     
     config = configparser.ConfigParser()
     config["internal"] = {}
