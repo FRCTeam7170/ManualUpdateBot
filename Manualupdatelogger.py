@@ -20,7 +20,7 @@ config["internal"]["keys"]      = "['port','user','host','sender_email','passwor
 
 class Pdf_firstrobotics:
     def __init__(self):
-        email           = True
+        email           = False
         slack           = True
         test            = False
         date_now        = datetime.datetime.strftime(datetime.datetime.now(), "%m-%d-%Y")
@@ -89,12 +89,6 @@ class Notification:
         else:
             print("file " + config["internal"]["conf_file"] + " not found")
             
-        port            = config["FRCUpdatelogger"]["port"]
-        user            = config["FRCUpdatelogger"]["user"]
-        smtp_server     = config["FRCUpdatelogger"]["host"]
-        sender_email    = config["FRCUpdatelogger"]["sender_email"]
-        receiver_email  = config["FRCUpdatelogger"]["destination"]
-        password        = config["FRCUpdatelogger"]["password"]
         if test:
             slackURL        = config["FRCUpdatelogger"]["slackBot"]
         else:
@@ -103,6 +97,12 @@ class Notification:
         if slack:
             self.slack(data, slackURL)
         if email:
+            port            = config["FRCUpdatelogger"]["port"]
+            user            = config["FRCUpdatelogger"]["user"]
+            smtp_server     = config["FRCUpdatelogger"]["host"]
+            sender_email    = config["FRCUpdatelogger"]["sender_email"]
+            receiver_email  = config["FRCUpdatelogger"]["destination"]
+            password        = config["FRCUpdatelogger"]["password"]
             self.mail(data, port, user, smtp_server, sender_email, receiver_email, password)
         
     def mail(self, data, port, user, smtp_server, sender_email, receiver_email, password):
