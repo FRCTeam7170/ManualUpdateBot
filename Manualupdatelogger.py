@@ -96,7 +96,7 @@ class Notification:
         receiver_email  = config["FRCUpdatelogger"]["destination"]
         password        = config["FRCUpdatelogger"]["password"]
         if test:
-            slackURL        = config["FRCUpdatelogger"]["slackBottest"]
+            slackURL        = config["FRCUpdatelogger"]["slackBot"]
         else:
             slackURL        = config["FRCUpdatelogger"]["slackBot"]
         
