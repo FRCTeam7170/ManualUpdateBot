@@ -20,15 +20,15 @@ config["internal"]["keys"]      = "['port','user','host','sender_email','passwor
 
 class Pdf_firstrobotics:
     def __init__(self):
-        email           = False
-        slack           = False
-        test            = True
+        email           = True
+        slack           = True
+        test            = False
         date_now        = datetime.datetime.strftime(datetime.datetime.now(), "%m-%d-%Y")
         self.pdfPath    = os.getcwd() + "/pdf/"
         filename        = self.pdfPath + date_now + "FRCGamesManual.pdf"
         difference      = False
         
-        Notification("Update logger deactivated. Thank you for the awesome season.", False, False, False)
+        #Notification("Update logger deactivated. Thank you for the awesome season.", False, False, False)
         
         if not os.path.isdir("pdf"):
             os.mkdir("pdf")
