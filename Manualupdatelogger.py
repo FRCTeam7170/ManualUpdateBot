@@ -20,9 +20,9 @@ config["internal"]["keys"]      = "['port','user','host','sender_email','passwor
 
 class Pdf_firstrobotics:
     def __init__(self):
-        email           = False
-        slack           = True
-        test            = False
+        email           = args.email
+        slack           = args.slack
+        test            = args.test
         date_now        = datetime.datetime.strftime(datetime.datetime.now(), "%m-%d-%Y")
         self.pdfPath    = os.getcwd() + "/pdf/"
         filename        = self.pdfPath + date_now + "FRCGamesManual.pdf"
